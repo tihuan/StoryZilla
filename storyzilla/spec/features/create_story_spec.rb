@@ -1,11 +1,13 @@
 require 'spec_helper'
 
 feature "Create a story" do
-  let(:story) { FactoryGirl.create(:story, title: "Great story", beginning: "A new beginning") }
+  let!(:user) { FactoryGirl.create(:user, username: "someuser", email: "email@email.com", password: "password", password_confirmation: "password") }
+
+  let!(:story) { FactoryGirl.create(:story, title: "Great story", beginning: "A new beginning") }
   # story = FactoryGirl.create()
   scenario "with valid attributes" do
-    visit root_path
-    click_link "Create story"
+    visit new_story_path(story)
+    # click_link "Create story" # I commented this out because we are actually starting on the page with the form, not going to it via a link
 
     fill_in "Title", with: story.title
 
@@ -17,29 +19,25 @@ feature "Create a story" do
   end
 
   scenario "with invalid title" do
-    it "blank title" do
-      visit root_path
-      click_link "Create story"
+    visit new_story_path(story)
+    # click_link "Create story"
 
-      fill_in "Title", with: nil
+    fill_in "Title", with: ""
 
-      fill_in "Beginning", with: story.beginning
-      click_button "Submit"
-      expect(page).to have_content "Story must have a title."
-    end
+    fill_in "Beginning", with: story.beginning
+    click_button "Submit"
+    expect(page).to_not have_content story.beginning
   end
 
   scenario "with invalid beginning" do
-    it "blank beginning" do
-      visit root_path
-      click_link "Create story"
+    visit new_story_path(story)
+    # click_link "Create story"
 
-      fill_in "Title", with: "Once upon a time"
+    fill_in "Title", with: "Once upon a time"
 
-      fill_in "Beginning", with: nil
-      click_button "Submit"
-      expect(page).to have_content "Beginning of story cannot be blank."
-    end
+    fill_in "Beginning", with: ""
+    click_button "Submit"
+    expect(page).to_not have_content "Once upon a time"
   end
 
 end
