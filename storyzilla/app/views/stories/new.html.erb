@@ -1,0 +1,10 @@
+<%= form_for @story, url: {action: "create"} do |story| %>
+  <%= story.label :title %>
+  <%= story.text_field :title %>
+
+  <%= story.label :beginning %>
+  <%= story.text_area :beginning %>
+  <%= story.submit "Submit" %>
+<% end %>
+
+

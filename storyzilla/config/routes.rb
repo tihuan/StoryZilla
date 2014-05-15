@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  root to: "stories#index"
+  # Jared/Johnathan code
+  # ============================================
+  # root to: "pages#welcome"
+  resources :users
+
+  get 'error' => 'pages#error'
+
+  resources :stories
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
