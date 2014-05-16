@@ -8,7 +8,7 @@ describe ContributionsController do
     before { session[:user_id] = user.id }
     it "sets instance variable with all incomplete stories" do
       get :index
-      expect(assigns(:stories)).to eq(Stories.where(complete: false))  # opposite controller.assign
+      expect(assigns(:stories)).to eq(Story.where(complete: false))  # opposite controller.assign
     end
 
     before { session[:user_id] = nil }
