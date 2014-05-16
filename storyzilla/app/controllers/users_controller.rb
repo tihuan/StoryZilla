@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     if current_user
       @user = current_user
+      @stories = @user.stories
     else
       redirect_to root_path
     end
