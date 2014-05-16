@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 feature "Create a story" do
-  let!(:user) { FactoryGirl.create(:user, username: "someuser", email: "email@email.com", password: "password", password_confirmation: "password") }
+  let(:user) { FactoryGirl.create(:user, username: "someuser", email: "email@email.com", password: "password", password_confirmation: "password") }
 
-  let!(:story) { FactoryGirl.create(:story, title: "Great story", beginning: "A new beginning") }
+  let(:story) { FactoryGirl.create(:story, title: "Great story", beginning: "A new beginning") }
 
   before do
     visit signin_url

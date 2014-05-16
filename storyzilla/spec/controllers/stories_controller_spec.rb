@@ -46,8 +46,25 @@ describe StoriesController do
         expect(response).to_not be_redirect
       }.to_not change { Story.count }
     end
+  end
 
+  describe "#show" do
+    let!(:story) { FactoryGirl.create(:story) }
+    context "with user not logged in" do
+      it "redirects if user not logged in" do
+        get :show, id: story.id
+        expect(response).to be_redirect
+      end
+    end
 
+    context "with user logged in" do
+      before { session[:user_id] = user.id }
+
+      it "renders the show page" do
+        get :show, id: story.id
+        expect(response).to be_success
+      end
+    end
   end
 end
 
