@@ -24,8 +24,10 @@ class StoriesController < ApplicationController
   def show
     if current_user == @story.user
       @contributions = @story.contributions
+      p "user contributions: " + @contributions
     else
-      @contributions = @story.contributions.last
+      @contribution = @story.contributions.last
+      p "last user contribution: " + @contribution.inspect
     end
     render :show
   end
