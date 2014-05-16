@@ -1,0 +1,59 @@
+body {
+  margin-top: 5%;
+  background: transparent;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.full {
+  background: url(http://olddesignshop.com/wp-content/uploads/2011/11/OldDesignShop_OpenBookBlankPages.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+label {
+color: #977535;
+display: block;
+width: 150px;
+float: left;
+}
+label:after { content: ": " }
+
+.hidden {
+  display: none;
+}
+
+.signup-in {
+  width: 50%;
+  margin: 10% auto 0 auto;
+}
+
+.signup-in, input[type="text"], input[type="password"] {
+  background-color: rgba(236,233,222,0.9);
+}
+
+input, textarea, select, .unedible-input {
+  border: 1px solid #F0DFA5;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  font-size: 1.2em;
+  height: auto !important;
+}
+
+li {
+  list-style: none;
+  color: red;
+}
+
