@@ -1,12 +1,13 @@
-<%= form_for @story do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
+<div class="signup-in">
+  <%= form_for @story do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
 
-  <%= f.label :beginning %>
-  <%= f.text_area :beginning %>
-  <%= f.submit "Submit" %>
-<% end %>
-
+    <%= f.label :beginning %>
+    <%= f.text_area :beginning %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>
 

@@ -1,12 +1,13 @@
-<div class="set_width">
+<div class="signup-in">
   <h3><%= @story.title %></h3>
 
   <%= @story.beginning %>
-  <% if @contributions != nil && current_user == @story.user %>
-    <% @contributions.each do |contribution| %>
-      <p><%= contribution.body %></p>
+    <% if @contributions != nil && current_user == @story.user %>
+      <% @contributions.each do |contribution| %>
+        <p><%= contribution.body %></p>
+      <% end %>
+    <% else %>
+      <%= @contribution.body if @contribution != nil %>
     <% end %>
-  <% else %>
-    <%= @contribution.body if @contribution != nil %>
-  <% end %>
+  </div>
 </div>
