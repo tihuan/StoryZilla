@@ -4,4 +4,3 @@ describe ContributionsController do
   let!(:user) { FactoryGirl.create(:user) }
 
 end
-
