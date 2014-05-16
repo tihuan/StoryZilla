@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature "Create a story" do
-  let(:user) { FactoryGirl.create(:user, username: "someuser", email: "email@email.com", password: "password", password_confirmation: "password") }
+  let(:user) { FactoryGirl.create(:user) }
 
   let(:story) { FactoryGirl.create(:story, title: "Great story", beginning: "A new beginning") }
 
@@ -32,6 +32,7 @@ feature "Create a story" do
     fill_in "Beginning", with: story.beginning
     click_button "Submit"
     expect(page).to have_content "Story was not created."
+    expect(page).to have_content "Title can't be blank"
   end
 
   scenario "with invalid beginning" do
@@ -42,6 +43,7 @@ feature "Create a story" do
     fill_in "Beginning", with: ""
     click_button "Submit"
     expect(page).to have_content "Story was not created."
+    expect(page).to have_content "Beginning can't be blank"
   end
 
 end

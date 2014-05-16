@@ -65,6 +65,14 @@ describe StoriesController do
         expect(response).to be_success
       end
     end
+
+    context "with invalid story ID" do
+      before { session[:user_id] = user.id }
+      it "doesn't raise a RecordNotFound error" do
+        get :show, id: 563
+        expect(response).to be_redirect
+      end
+    end
   end
 end
 
