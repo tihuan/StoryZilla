@@ -1,6 +1,6 @@
 class StoriesController < ApplicationController
   before_action :set_story, only: [:show]
-  before_action :signed_in_user, only: [:index, :new, :show]
+  before_action :signed_in_user, only: [:new, :show]
 
   def index
     @stories = Story.all
@@ -28,8 +28,6 @@ class StoriesController < ApplicationController
       @contributions = @story.contributions.last
     end
     render :show
-    # @story = set_story
-    # @story = Story.find(params[:id])
   end
 
   private
