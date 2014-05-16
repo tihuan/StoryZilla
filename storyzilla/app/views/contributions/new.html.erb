@@ -1,0 +1,10 @@
+<h1>Add to this story</h1>
+<p><%= @prior_contrib.body %></p>
+<%= form_for @contribution do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.hidden_field :contribution_id%>
+  <%= f.label :body %>
+  <%= f.text_field :body %>
+  <%= f.submit "Submit" %>
+<% end %>
