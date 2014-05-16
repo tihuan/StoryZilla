@@ -33,7 +33,19 @@ describe StoriesController do
   end
 
   describe "#create" do
+    it "should create new story with valid attributes" do
+      expect {
+        post :create, story: FactoryGirl.attributes_for(:story)
+        expect(response).to be_redirect
+      }.to change { Story.count }.by(1)
+    end
 
+    it "should not create a new story in the case of invalid attributes" do
+      expect {
+        post :create, story: { title: "", beginning: "" }
+        expect(response).to_not be_redirect
+      }.to_not change { Story.count }
+    end
 
 
   end

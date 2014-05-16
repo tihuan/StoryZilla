@@ -21,4 +21,11 @@ module SessionsHelper
     session.clear
     self.current_user = nil
   end
+
+  def signed_in_user
+    unless signed_in?
+      flash[:notice] = "Please sign in."
+      redirect_to signin_url
+    end
+  end
 end
