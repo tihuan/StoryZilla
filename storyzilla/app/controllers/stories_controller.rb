@@ -1,8 +1,12 @@
 class StoriesController < ApplicationController
   before_action :set_story, only: [:show]
-
+  # before_action :signed_in?
   def new
-    @story = Story.new
+    if not signed_in?
+      redirect_to root_path
+    else
+      @story = current_user.stories.new
+    end
   end
 
   def create

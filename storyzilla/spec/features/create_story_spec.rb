@@ -5,6 +5,10 @@ feature "Create a story" do
 
   let!(:story) { FactoryGirl.create(:story, title: "Great story", beginning: "A new beginning") }
 
+  # before do
+
+  # end
+
   scenario "with valid attributes" do
     visit new_story_path(story)
 
