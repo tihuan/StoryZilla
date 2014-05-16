@@ -9,7 +9,7 @@ class StoriesController < ApplicationController
     @story = Story.new(story_params)
     if @story.save
       flash[:success] = "Story successfully created!"
-      redirect_to story_path(@story)
+      redirect_to @story
     else
       flash[:failure] = "Story was not created."
       render :new
