@@ -7,6 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><%= link_to 'All Stories', stories_path() %></li>
+      <li><%= link_to 'Create Story', new_story_path(@story) %></li>
+      <li><%= link_to 'Profile', user_path(current_user) %></li>
+    </ul>
+  </nav>
 
   <% flash.each do |type, msg| %>
     <div class="<%= type %>">
