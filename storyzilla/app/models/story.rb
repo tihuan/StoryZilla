@@ -10,6 +10,9 @@ class Story < ActiveRecord::Base
   end
 
   def last_contribution
+    # This could be way faster if used a Order_by id and select the last contribution.
+    # there is no way that a contribution could have a higher id and not be before another one 
+
 
     # Not DRY - Not sure why I can't call first_contribution
     first_contrib = Contribution.where(story_id: self.id, contribution_id: nil).first
@@ -30,5 +33,8 @@ class Story < ActiveRecord::Base
     return contribs.last
   end
 
+  def self.incomplete_stories
+    return Story.where(completion_status: false)
+  end
 
 end

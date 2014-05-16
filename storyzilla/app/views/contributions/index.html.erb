@@ -1,4 +1,7 @@
 <h1>Contributions:</h1>
-<% @contributions.each do |contribution| %>
-  <p><%= contribution.body %></p>
+<p>These are the last Contributions for each story</p>
+<p>Select a story to add another contribution</p>
+<% @stories.each do |story| %>
+  <% last_contrib = story.last_contribution %>
+  <p><%= last_contrib.body %> <%= link_to 'add to story', new_contribution_path(contribution_id: last_contrib.id) %></p>
 <% end %>
