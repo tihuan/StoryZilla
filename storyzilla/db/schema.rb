@@ -20,10 +20,12 @@ ActiveRecord::Schema.define(version: 20140516185211) do
     t.text     "body"
     t.integer  "user_id"
     t.integer  "story_id"
+    t.integer  "contribution_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "contributions", ["contribution_id"], name: "index_contributions_on_contribution_id", using: :btree
   add_index "contributions", ["story_id"], name: "index_contributions_on_story_id", using: :btree
   add_index "contributions", ["user_id"], name: "index_contributions_on_user_id", using: :btree
 

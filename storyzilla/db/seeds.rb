@@ -11,7 +11,8 @@ Contribution.delete_all
 Story.delete_all
 User.delete_all
 
-user = User.new(username: 'david', email: "david@notreal.com", password: 'password', password_confirmation: 'password')
+user = User.new(username: 'david', email: "david@notreal.com", 
+    password: 'password', password_confirmation: 'password')
 user.save 
 
 my_book = []
@@ -21,8 +22,10 @@ my_book = []
 end
 
 my_book.each do |story|
+  prior_contribution = nil
   5.times do |index|
-    Contribution.create(body: "...and one time in band camp...", story: story, user: user)
+    prior_contribution = Contribution.create(body: "...and one time in band camp...", 
+      story: story, user: user, parent: prior_contribution)
   end
 end
 
