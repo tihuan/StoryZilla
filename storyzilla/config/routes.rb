@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "stories#index"
+  root to: "pages#welcome"
   # Jared/Johnathan code
   # ============================================
   # root to: "pages#welcome"
