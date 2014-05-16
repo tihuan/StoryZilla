@@ -9,6 +9,7 @@ h1 {
 
 a {
   text-decoration: none;
+  color: #533a27 !important;
 }
 
 .full {
@@ -32,8 +33,10 @@ label:after { content: ": " }
 }
 
 .signup-in {
+  display: fixed;
+  top: 40px;
+  margin: 0 auto;
   width: 50%;
-  margin: 10% auto 0 auto;
 }
 
 .signup-in, input[type="text"], input[type="password"] {
@@ -55,5 +58,10 @@ input {
 li {
   list-style: none;
   color: red;
+}
+
+.stories {
+  font-size: 1.08em;
+  text-align: center;
 }
 
