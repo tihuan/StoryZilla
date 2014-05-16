@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "pages#welcome"
   resources :users
+  resources :stories
+
   resources :sessions, only: [:new, :create, :destroy]
   match '/signup', to: 'users#create', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
