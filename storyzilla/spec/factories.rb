@@ -5,9 +5,7 @@ FactoryGirl.define do
     password "password"
     password_confirmation "password"
   end
-end
 
-FactoryGirl.define do
   factory :story do
     title "My Story"
     beginning "Once upon a time"

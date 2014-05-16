@@ -1,8 +1,9 @@
 class StoriesController < ApplicationController
   before_action :set_story, only: [:show]
+  before_action :signed_in_user, only: [:new]
 
   def new
-    @story = Story.new
+    @story = current_user.stories.new
   end
 
   def create
