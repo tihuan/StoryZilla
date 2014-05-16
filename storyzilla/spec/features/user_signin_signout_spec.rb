@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-user = FactoryGirl.create(:user, username: "Bob", email: "bob@bob.com", password: "password", password_confirmation: "password")
 feature "User signs in" do
+  let(:user) { FactoryGirl.create(:user) }
   scenario "with valid username and password" do
     visit '/'
     click_link "Sign In"
@@ -22,6 +22,7 @@ feature "User signs in" do
 end
 
 feature "Log out" do
+  let(:user) { FactoryGirl.create(:user) }
   scenario "logging out" do
     visit '/'
 
