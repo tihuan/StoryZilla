@@ -5,6 +5,13 @@ feature "Create a story" do
 
   let!(:story) { FactoryGirl.create(:story, title: "Great story", beginning: "A new beginning") }
 
+  before do
+    visit signin_url
+    fill_in "Username", with: user.username
+    fill_in "Password", with: user.password
+    click_button "Sign In"
+  end
+
   scenario "with valid attributes" do
     visit new_story_path(story)
 
