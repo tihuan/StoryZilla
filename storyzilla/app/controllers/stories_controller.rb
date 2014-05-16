@@ -1,6 +1,10 @@
 class StoriesController < ApplicationController
   before_action :set_story, only: [:show]
-  before_action :signed_in_user, only: [:new]
+  before_action :signed_in_user, only: [:index, :new, :show]
+
+  def index
+    @stories = Story.all
+  end
 
   def new
     @story = current_user.stories.new
