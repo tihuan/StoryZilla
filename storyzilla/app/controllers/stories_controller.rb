@@ -22,6 +22,14 @@ class StoriesController < ApplicationController
   end
 
   def show
+    if current_user == @story.user
+      @contributions = @story.contributions
+    else
+      @contributions = @story.contributions.last
+    end
+    render :show
+    # @story = set_story
+    # @story = Story.find(params[:id])
   end
 
   private
@@ -31,7 +39,6 @@ class StoriesController < ApplicationController
   end
 
   private
-
     def set_story
       @story = Story.find(params[:id])
     rescue ActiveRecord::RecordNotFound
